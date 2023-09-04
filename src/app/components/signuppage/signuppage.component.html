@@ -1,0 +1,20 @@
+<div class="background container">
+    <div class="row-12">
+        <div class="col-12 card p-5 bg-dark mt-5">
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                <h3 class="text-danger text-center">SignUp Page</h3>
+                <label class="form-label text-light" for="username" >Email</label>
+                <input class="form-group form-control" id="username" name="username" formControlName="username"  />
+                <p class="text-danger" *ngIf="!signUpForm.get('username')?.valid && signUpForm.get('username')?.touched">*Invalid Email</p>
+                <label class="form-label text-light mt-2" for="password">Password</label>
+                <input class="form-group form-control" id="password" name="password" formControlName="password" />
+                <p class="text-danger"  *ngIf="!signUpForm.get('password')?.valid && signUpForm.get('password')?.touched">*Invalid Password</p>
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Submit</button>
+                    <a routerLink='/login'>login</a>
+                    <button class="btn btn-danger" type="reset" (click)="signUpForm.reset()">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
