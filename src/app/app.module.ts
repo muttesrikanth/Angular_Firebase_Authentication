@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { SignuppageComponent } from './components/signuppage/signuppage.component';
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
     ReactiveFormsModule,FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,30 +4,75 @@
     <div class="d-flex flex-row justify-content-between m-2">
 
         <h1 class="text-warning">User Data</h1>
-        <button   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add</button>
-    </div>
-<hr>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div>
+          {{user}}
+          <p>{{getPosts.length}} - Items</p>
         </div>
-        <textarea [(ngModel)]="Addtext" class="text-left m-2 modal-body">
-        </textarea>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" (click)="adddata()" class="btn btn-primary">Add</button>
+
+<!-- model... -->
+        <button   type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-success">Add</button>
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add to list</h5>
+                <button type="button" class="btn-close"  (click)="clearAll()" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <label class="m-1 text-danger">Name</label>
+              <input type="text" [(ngModel)]="username" class="text-left p-0 m-1 modal-body"/>
+              <label  class="m-1 text-danger">Branch</label>
+              <input type="text" [(ngModel)]="mobile" class="text-left p-0 m-1 modal-body"/>
+              <label class="m-1 text-danger">Working</label>
+              <textarea [(ngModel)]="Addtext" class="text-left p-0 m-1 modal-body">
+              </textarea>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"  (click)="clearAll()" data-bs-dismiss="modal">Close</button>
+                <button type="button" [disabled]='(!Addtext.length) && (!username.length) && (!mobile.length)' data-bs-dismiss="modal" (click)='adddata()' class="btn btn-primary">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- model -->
+
+
+      </div>
+      <hr>
+      <div *ngFor=" let item of getPosts">
+<!-- model -->
+  <div class="modal fade" id='exampleModal' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update data</h5>
+            <button type="button" class="btn-close" (click)="clearAll()" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <label class="m-1 text-danger">Name</label>
+              <input type="text" [(ngModel)]="username" class="text-left p-0 m-1 modal-body"/>
+              <label  class="m-1 text-danger">Branch</label>
+              <input type="text" [(ngModel)]="mobile" class="text-left p-0 m-1 modal-body"/>
+              <label class="m-1 text-danger">Working</label>
+              <textarea [(ngModel)]="Addtext" class="text-left p-0 m-1 modal-body">
+              </textarea>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="clearAll()" data-bs-dismiss="modal">Close</button>
+            <button type="button" [disabled]='(!Addtext.length) && (!username.length) && (!mobile.length)' (click)='editData()'  data-bs-dismiss="modal" class="btn btn-primary">Update</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    <div *ngFor=" let item of getPosts">
-        <div class="bgcolor m-2 d-flex flex-row justify-content-between">
-            <h4 class="text-center text-color">{{item.userData}}</h4>
-            <button class="mt-5 pt-5" type="button" class="btn btn-danger" (click)="deletePost(item.id)" > delete</button>
+  <div class="bgcolor m-2 d-flex flex-row justify-content-between">
+    <div class="d-flex flex-column">
+      <h4 class="text-left text-color">Name : <span class="text-light">{{item.Name | titlecase}}</span></h4>
+      <h4 class="text-left text-color">Branch : <span class="text-light">{{item.Number| titlecase}}</span></h4>
+      <h4 class="text-left text-color">Working : <span class="text-light">{{item.Address| titlecase}}</span></h4>
+    </div>
+            <div  class="buttons m-2 d-flex flex-row justify-content-between">
+              <button  class="mt-5 pt-5"data-bs-toggle="modal"  type="button" class="btn btn-info" data-bs-target="#exampleModal" (click)="editClicked(item)" >Edit</button>
+              <button class="mt-5 pt-5" type="button" class="btn btn-danger" (click)="deletePost(item.id)" > Delete</button>
+            </div>
         </div>
+
+<!-- model -->
     </div>
 </div>
 </div>

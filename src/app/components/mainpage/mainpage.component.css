@@ -5,4 +5,8 @@
 .text-color{
     color: #f1ff3d;
     margin-left: 8px;
+    text-align: left;
+}
+.buttons{
+    width: 150px;
 }

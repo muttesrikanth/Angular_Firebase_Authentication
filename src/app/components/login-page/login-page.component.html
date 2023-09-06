@@ -4,13 +4,13 @@
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <h3 class="text-danger text-center">Login Page</h3>
                 <label class="form-label text-light" for="username" >Email</label>
-                <input class="form-group form-control" id="username" name="username" formControlName="username"  />
+                <input class="form-group form-control" ngClass="" id="username" name="username" formControlName="username"  />
                 <p class="text-danger" *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">*Invalid Email</p>
                 <label class="form-label text-light mt-2" for="password">Password</label>
                 <input class="form-group form-control" id="password" name="password" formControlName="password" />
                 <p class="text-danger"  *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">*Invalid Password</p>
-                <div class="d-flex justify-content-between mt-4">
-                    <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Submit</button>
+                <div class="d-flex justify-content-between flex-warp mt-4">
+                    <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid ">Submit</button>
                     <a routerLink="/signup">SignUP</a>
                     <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
                 </div>

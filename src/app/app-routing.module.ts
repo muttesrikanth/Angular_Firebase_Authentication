@@ -6,9 +6,10 @@ import { SignuppageComponent } from './components/signuppage/signuppage.componen
 import { AuthGaurd } from './services/AuthGaurd.service';
 
 const routes: Routes = [
-  {path:'',component:MainpageComponent},
+  {path:'',component:MainpageComponent, canActivate:[AuthGaurd]},
   {path:'signup',component:SignuppageComponent},
   {path:'login',component:LoginPageComponent},
+  {path:'**',component:MainpageComponent}
 ];
 
 @NgModule({
