@@ -1,5 +1,13 @@
-# Formauthentication
+## Angular Firebase Authentication
 
+This project utilizes Angular Reactive Forms and Bootstrap for designing a form integrated with Firebase Authentication. It provides comprehensive error handling for the login process. Users without credentials can sign up to obtain access, after which they can perform CRUD operations on specific data upon logging in.
+
+### Features:
+- **Authentication:** Utilizes Firebase Authentication for secure user login and signup processes.
+- **Form Design:** Designed using Bootstrap and Angular Reactive Forms for a responsive and user-friendly interface.
+- **Error Handling:** Implements robust error handling to guide users through the login and signup processes.
+- **Data Management:** Allows authenticated users to perform CRUD operations on designated data post-login.
+ 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
 ## Development server
